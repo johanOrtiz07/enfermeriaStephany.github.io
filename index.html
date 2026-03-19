@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EPP - Personal de Salud</title>
+    <title>Presentación EPP - Contenido Original</title>
     <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -15,176 +15,242 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        header {
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        section {
-            background: var(--white);
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-left: 5px solid var(--primary);
-        }
-
-        h2 {
-            color: var(--primary);
+            background-color: #121212;
             display: flex;
-            align-items: center;
-            gap: 10px;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+            color: var(--text);
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .card {
-            background: var(--secondary);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid #dee2e6;
-        }
-
-        .card h3 {
-            margin-top: 0;
-            color: var(--primary);
-        }
-
-        .image-placeholder {
-            background: #ddd;
-            width: 100%;
-            height: 150px;
+        .slide-container {
+            flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 6px;
-            margin-bottom: 1rem;
-            font-style: italic;
-            color: #666;
-            text-align: center;
+            padding: 20px;
         }
 
-        .tip {
-            background: #fff3cd;
-            border-left: 5px solid #ffc107;
-            padding: 1rem;
-            margin-top: 1rem;
+        .slide {
+            display: none;
+            background: var(--white);
+            width: 100%;
+            max-width: 1100px;
+            height: 85vh;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            padding: 40px;
+            box-sizing: border-box;
+            position: relative;
+            animation: fadeIn 0.4s ease-out;
         }
 
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: #777;
-            font-size: 0.9rem;
+        .slide.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        ul {
-            padding-left: 1.2rem;
+        /* Layout con Imagen Grande */
+        .slide-content {
+            display: flex;
+            height: 100%;
+            align-items: center;
+            gap: 50px;
         }
 
-        li {
-            margin-bottom: 0.5rem;
+        .text-section { flex: 1; }
+        .image-section { 
+            flex: 1.5; 
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f8f9fa;
+            border-radius: 15px;
         }
+
+        .image-section img {
+            max-width: 95%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        h1 { color: var(--primary); font-size: 2.2rem; margin-bottom: 20px; }
+        h2 { color: var(--primary); font-size: 2rem; margin-bottom: 15px; }
+        p { font-size: 1.4rem; line-height: 1.6; color: #444; }
+        ul { font-size: 1.3rem; line-height: 1.8; }
+
+        /* Controles de Navegación */
+        .controls {
+            background: #1e1e1e;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: 0.2s;
+        }
+
+        .btn:hover:not(:disabled) { background: #007bff; transform: translateY(-2px); }
+        .btn:disabled { background: #444; cursor: not-allowed; }
+        .page-info { color: #888; font-family: sans-serif; font-weight: bold; }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Elementos de Protección Personal (EPP)</h1>
-    <p>Seguridad y Protección para el Personal de Salud</p>
-</header>
-
-<div class="container">
-
-    <section>
-        <h2>🛡️ ¿Qué son?</h2>
-        <p>Son equipos que protegen al personal de salud de infecciones y riesgos biológicos, químicos o físicos durante la atención de pacientes.</p>
-        <div class="tip">
-            <strong>Dato importante:</strong> El EPP siempre debe colocarse y retirarse correctamente para evitar riesgos de contagio.
-        </div>
-    </section>
-
-    <section>
-        <h2>🧤 Principales Elementos</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="guantes.png" alt="Guantes" style="width:100%; border-radius:6px;">
-                <h3>Guantes</h3>
-                <p>Protegen las manos y evitan contacto directo con sangre, fluidos o superficies contaminadas.</p>
+<div class="slide-container">
+    
+    <div class="slide active">
+        <div class="slide-content">
+            <div class="text-section">
+                <h1>ELEMENTOS DE PROTECCIÓN PERSONAL (EPP)</h1>
+                <h2>¿Qué son?</h2>
+                <p>Son equipos que protegen al personal de salud de infecciones y riesgos durante la atención de pacientes.</p>
+                <p>Usa el personal de salud (como enfermería) para protegerse de riesgos biológicos, químicos o físicos.</p>
             </div>
-            <div class="card">
-                <img src="mascarilla.png" alt="Guantes" style="width:100%; border-radius:6px;">
-                <h3>Mascarilla</h3>
-                <p>Protege las vías respiratorias. Evita inhalar microorganismos y protege al paciente de contagios.</p>
-            </div>
-            <div class="card">
-                <img src="gafas.png" alt="Guantes" style="width:100%; border-radius:6px;">
-                <h3>Gafas o Careta</h3>
-                <p>Protegen los ojos de salpicaduras de sangre o secreciones.</p>
-            </div>
-            <div class="card">
-                <img src="Bata-quirurgica.png" alt="Guantes" style="width:100%; border-radius:6px;">
-                <h3>Bata Quirúrgica</h3>
-                <p>Protege la piel y la ropa de la contaminación externa.</p>
-            </div>
-            <div class="card">
-                <img src="gorro.png" alt="Guantes" style="width:100%; border-radius:6px;">
-                <h3>Gorro</h3>
-                <p>Cubre el cabello y reduce la probabilidad de que sea fuente de contaminación.</p>
-            </div>
-            <div class="card">
-                <img src="cubrecalzado.png" alt="Guantes" style="width:100%; border-radius:6px;">
-                <h3>Cubrecalzado</h3>
-                <p>Protege los zapatos y evita transportar microorganismos de un área a otra.</p>
+            <div class="image-section">
+                <img src="https://img.freepik.com/vector-gratis/medicos-equipo-proteccion-personal-ilustrado_23-2148503254.jpg" alt="EPP Hospitalario">
             </div>
         </div>
-    </section>
+    </div>
 
-    <section>
-        <h2>⚠️ Importancia</h2>
-        <ul>
-            <li><strong>Prevenir infecciones:</strong> Protege contra patógenos como COVID, hepatitis, etc.</li>
-            <li><strong>Protección profesional:</strong> Resguarda la integridad física del personal de salud.</li>
-            <li><strong>Evitar contaminación cruzada:</strong> Impide el traslado de gérmenes entre diferentes pacientes.</li>
-        </ul>
-    </section>
+    <div class="slide">
+        <div class="slide-content">
+            <div class="text-section">
+                <h2>Guantes 🧤</h2>
+                <p><strong>Protegen las manos:</strong> Evitan contacto con sangre, fluidos o superficies contaminadas.</p>
+            </div>
+            <div class="image-section">
+                <img src="guantes.png" alt="Guantes">
+            </div>
+        </div>
+    </div>
 
-    <section style="border-left-color: var(--accent);">
-        <h2>💡 Recuerda</h2>
-        <ul>
-            <li>✅ Usar el EPP correctamente en todo momento.</li>
-            <li>✅ <strong>Lavado de manos</strong> obligatorio antes y después de usar el equipo.</li>
-            <li>✅ Retirar cada elemento con cuidado para no contaminarse.</li>
-        </ul>
-    </section>
+    <div class="slide">
+        <div class="slide-content">
+            <div class="text-section">
+                <h2>Mascarilla 😷</h2>
+                <p><strong>Protege vías respiratorias:</strong> Evita contagios e inhalar microorganismos. Protege al paciente de contagios.</p>
+            </div>
+            <div class="image-section">
+                <img src="mascarilla.png" alt="Mascarilla">
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <div class="text-section">
+                <h2>Gafas o careta 🥽</h2>
+                <p><strong>Protege los ojos:</strong> Evita salpicaduras de sangre, secreciones o fluidos biológicos.</p>
+            </div>
+            <div class="image-section">
+                <img src="gafas.png" alt="Gafas">
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <div class="text-section">
+                <h2>Bata o bata quirúrgica 🥼</h2>
+                <p><strong>Protege la ropa y piel:</strong> Evita contaminación externa.</p>
+            </div>
+            <div class="image-section">
+                <img src="Bata-quirurgica.png" alt="Bata">
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <div class="text-section">
+                <h2>Gorro y Cubrecalzado 👟</h2>
+                <p><strong>Gorro:</strong> Cubre el cabello y reduce contaminación. Evita que el cabello sea fuente de contaminación.</p>
+                <hr>
+                <p><strong>Cubrecalzado:</strong> Protege los zapatos y evita llevar o transportar microorganismos.</p>
+            </div>
+            <div class="image-section">
+                <img src="cubrecalzado.png" alt="Calzado y Gorro">
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <div class="text-section">
+                <h2>¿Para qué sirven? / IMPORTANCIA</h2>
+                <ul>
+                    <li>Prevenir infecciones (como COVID, hepatitis, etc.).</li>
+                    <li>Proteger al personal de salud.</li>
+                    <li>Evitar la contaminación cruzada entre pacientes o contagios.</li>
+                </ul>
+            </div>
+            <div class="image-section" style="background: #fff3cd;">
+                <p style="padding: 20px; font-weight: bold; text-align: center; color: #856404;">
+                    Dato importante: El EPP siempre debe colocarse y retirarse correctamente, porque si no, puede haber riesgo de contagio.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <div class="text-section">
+                <h2>RECUERDA 💡</h2>
+                <ul>
+                    <li>Usar el EPP correctamente.</li>
+                    <li>Lavado de manos antes y después.</li>
+                    <li>Retirarlo con cuidado.</li>
+                </ul>
+            </div>
+            <div class="image-section">
+                <h1 style="font-size: 4rem; text-align: center;">🛡️🧼🧤</h1>
+            </div>
+        </div>
+    </div>
 
 </div>
 
-<footer>
-    Presentación Educativa sobre Bioseguridad Hospitalaria &copy; 2026 <br>
-    Hecho por Stephany Carolina Pirela Fermin
-</footer>
+<div class="controls">
+    <button class="btn" id="prev" onclick="nav(-1)" disabled>Anterior</button>
+    <span class="page-info" id="pinfo">Diapositiva 1 de 8</span>
+    <button class="btn" id="next" onclick="nav(1)">Siguiente</button>
+</div>
+
+<script>
+    let cur = 0;
+    const slides = document.querySelectorAll('.slide');
+    const pinfo = document.getElementById('pinfo');
+    const bPrev = document.getElementById('prev');
+    const bNext = document.getElementById('next');
+
+    function nav(step) {
+        slides[cur].classList.remove('active');
+        cur += step;
+        slides[cur].classList.add('active');
+        
+        bPrev.disabled = cur === 0;
+        bNext.disabled = cur === slides.length - 1;
+        pinfo.innerText = `Diapositiva ${cur + 1} de ${slides.length}`;
+    }
+</script>
 
 </body>
 </html>
