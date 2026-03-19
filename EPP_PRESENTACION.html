@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPP - Personal de Salud</title>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0056b3;
+            --secondary: #e3f2fd;
+            --accent: #28a745;
+            --text: #333;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            background: var(--white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary);
+        }
+
+        h2 {
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        .image-placeholder {
+            background: #ddd;
+            width: 100%;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            font-style: italic;
+            color: #666;
+            text-align: center;
+        }
+
+        .tip {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        ul {
+            padding-left: 1.2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Elementos de Protección Personal (EPP)</h1>
+    <p>Seguridad y Protección para el Personal de Salud</p>
+</header>
+
+<div class="container">
+
+    <section>
+        <h2>🛡️ ¿Qué son?</h2>
+        <p>Son equipos que protegen al personal de salud de infecciones y riesgos biológicos, químicos o físicos durante la atención de pacientes.</p>
+        <div class="tip">
+            <strong>Dato importante:</strong> El EPP siempre debe colocarse y retirarse correctamente para evitar riesgos de contagio.
+        </div>
+    </section>
+
+    <section>
+        <h2>🧤 Principales Elementos</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="guantes.png" alt="Guantes" style="width:100%; border-radius:6px;">
+                <h3>Guantes</h3>
+                <p>Protegen las manos y evitan contacto directo con sangre, fluidos o superficies contaminadas.</p>
+            </div>
+            <div class="card">
+                <img src="mascarilla.png" alt="Guantes" style="width:100%; border-radius:6px;">
+                <h3>Mascarilla</h3>
+                <p>Protege las vías respiratorias. Evita inhalar microorganismos y protege al paciente de contagios.</p>
+            </div>
+            <div class="card">
+                <img src="gafas.png" alt="Guantes" style="width:100%; border-radius:6px;">
+                <h3>Gafas o Careta</h3>
+                <p>Protegen los ojos de salpicaduras de sangre o secreciones.</p>
+            </div>
+            <div class="card">
+                <img src="Bata-quirurgica.png" alt="Guantes" style="width:100%; border-radius:6px;">
+                <h3>Bata Quirúrgica</h3>
+                <p>Protege la piel y la ropa de la contaminación externa.</p>
+            </div>
+            <div class="card">
+                <img src="gorro.png" alt="Guantes" style="width:100%; border-radius:6px;">
+                <h3>Gorro</h3>
+                <p>Cubre el cabello y reduce la probabilidad de que sea fuente de contaminación.</p>
+            </div>
+            <div class="card">
+                <img src="cubrecalzado.png" alt="Guantes" style="width:100%; border-radius:6px;">
+                <h3>Cubrecalzado</h3>
+                <p>Protege los zapatos y evita transportar microorganismos de un área a otra.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>⚠️ Importancia</h2>
+        <ul>
+            <li><strong>Prevenir infecciones:</strong> Protege contra patógenos como COVID, hepatitis, etc.</li>
+            <li><strong>Protección profesional:</strong> Resguarda la integridad física del personal de salud.</li>
+            <li><strong>Evitar contaminación cruzada:</strong> Impide el traslado de gérmenes entre diferentes pacientes.</li>
+        </ul>
+    </section>
+
+    <section style="border-left-color: var(--accent);">
+        <h2>💡 Recuerda</h2>
+        <ul>
+            <li>✅ Usar el EPP correctamente en todo momento.</li>
+            <li>✅ <strong>Lavado de manos</strong> obligatorio antes y después de usar el equipo.</li>
+            <li>✅ Retirar cada elemento con cuidado para no contaminarse.</li>
+        </ul>
+    </section>
+
+</div>
+
+<footer>
+    Presentación Educativa sobre Bioseguridad Hospitalaria &copy; 2026
+</footer>
+
+</body>
+</html>
