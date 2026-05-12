@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <title>Reciclaje Hospitalario en Colombia</title>
   <style>
     :root{
@@ -28,19 +28,19 @@
     body{
       background: linear-gradient(135deg, #0f172a, #1f3c88);
       color: var(--texto);
-      overflow: hidden;
+      overflow:hidden;
     }
 
     .slider{
       position: relative;
-      width: 100vw;
+      width: 100%;
       height: 100vh;
     }
 
     .slide{
       position: absolute;
       inset: 0;
-      padding: 60px 70px;
+      padding: clamp(20px, 5vw, 60px);
       background:
         linear-gradient(135deg, rgba(255,255,255,.96), rgba(241,245,249,.95)),
         url('https://images.unsplash.com/photo-1587351021759-3e566b5c2b17?auto=format&fit=crop&w=1600&q=80');
@@ -48,10 +48,12 @@
       background-position: center;
       opacity: 0;
       transform: translateX(100%);
-      transition: all .6s ease;
+      transition: all .5s ease;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     .slide.active{
@@ -69,51 +71,52 @@
       display:inline-block;
       background: var(--azul);
       color: white;
-      padding: 10px 16px;
+      padding: 8px 14px;
       border-radius: 999px;
-      font-size: .9rem;
-      margin-bottom: 22px;
+      font-size: .85rem;
+      margin-bottom: 18px;
       width: fit-content;
     }
 
     h1{
-      font-size: clamp(2.4rem, 5vw, 4.4rem);
+      font-size: clamp(2rem, 6vw, 4.3rem);
       color: var(--azul);
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       line-height: 1.1;
     }
 
     h2{
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
       color: var(--azul);
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     p{
-      font-size: 1.1rem;
+      font-size: clamp(1rem, 2.4vw, 1.1rem);
       max-width: 950px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       line-height: 1.7;
     }
 
     .grid{
       display:grid;
-      gap: 18px;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      margin-top: 18px;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      margin-top: 16px;
     }
 
     .card{
       background: white;
-      border-radius: 18px;
-      padding: 20px;
+      border-radius: 16px;
+      padding: 18px;
       box-shadow: var(--sombra);
-      border-left: 8px solid var(--azul);
+      border-left: 7px solid var(--azul);
     }
 
     .card h3{
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       color: var(--azul);
+      font-size: 1.05rem;
     }
 
     .verde{ border-left-color: var(--verde); }
@@ -124,25 +127,25 @@
 
     .stats{
       display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-      margin-top: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
     }
 
     .stat{
-      padding: 24px;
-      border-radius: 18px;
+      padding: 20px;
+      border-radius: 16px;
       color: white;
       text-align:center;
       box-shadow: var(--sombra);
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: bold;
     }
 
     .stat small{
       display:block;
-      margin-top: 10px;
-      font-size: 1rem;
+      margin-top: 8px;
+      font-size: .95rem;
       font-weight: normal;
     }
 
@@ -151,25 +154,25 @@
 
     .steps{
       display:grid;
-      gap: 16px;
-      margin-top: 18px;
+      gap: 14px;
+      margin-top: 16px;
       max-width: 900px;
     }
 
     .step{
       display:flex;
-      gap: 18px;
+      gap: 14px;
       align-items:flex-start;
       background: white;
-      border-radius: 16px;
-      padding: 18px;
+      border-radius: 14px;
+      padding: 16px;
       box-shadow: var(--sombra);
     }
 
     .num{
-      width: 46px;
-      height: 46px;
-      min-width: 46px;
+      width: 42px;
+      height: 42px;
+      min-width: 42px;
       border-radius: 50%;
       background: linear-gradient(135deg, var(--azul), var(--azul2));
       color: white;
@@ -177,12 +180,12 @@
       align-items:center;
       justify-content:center;
       font-weight:bold;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
 
     .footer-note{
-      margin-top: 20px;
-      padding: 16px 18px;
+      margin-top: 18px;
+      padding: 14px 16px;
       background: #fff7ed;
       border-left: 6px solid #f59e0b;
       border-radius: 12px;
@@ -193,40 +196,43 @@
       position: fixed;
       left: 0;
       right: 0;
-      bottom: 18px;
+      bottom: 12px;
       display:flex;
       justify-content:center;
-      gap: 14px;
+      gap: 10px;
       z-index: 10;
+      padding: 0 12px;
+      flex-wrap: wrap;
     }
 
     .btn{
       border: none;
-      background: rgba(255,255,255,.92);
+      background: rgba(255,255,255,.95);
       color: var(--azul);
-      padding: 14px 20px;
+      padding: 14px 18px;
       border-radius: 999px;
       font-weight: bold;
       cursor: pointer;
       box-shadow: var(--sombra);
-    }
-
-    .btn:hover{
-      background: white;
+      min-width: 110px;
+      font-size: 1rem;
     }
 
     .dots{
       position: fixed;
-      top: 18px;
-      right: 18px;
+      top: 12px;
+      right: 12px;
       display:flex;
-      gap: 8px;
+      gap: 6px;
       z-index: 10;
+      flex-wrap: wrap;
+      max-width: 40vw;
+      justify-content: flex-end;
     }
 
     .dot{
-      width: 12px;
-      height: 12px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
       background: rgba(255,255,255,.4);
     }
@@ -236,9 +242,60 @@
     }
 
     .footer{
-      margin-top: 28px;
+      margin-top: 24px;
       font-weight: bold;
       color: var(--azul);
+      font-size: 1.05rem;
+    }
+
+    @media (max-width: 768px){
+      body{ overflow: hidden; }
+      .slide{
+        justify-content: flex-start;
+        padding-top: 70px;
+        padding-bottom: 90px;
+      }
+
+      .grid,
+      .stats{
+        grid-template-columns: 1fr;
+      }
+
+      .card,
+      .step{
+        padding: 16px;
+      }
+
+      .nav{
+        bottom: 8px;
+      }
+
+      .btn{
+        min-width: 96px;
+        padding: 13px 16px;
+      }
+    }
+
+    @media (max-width: 480px){
+      h1{
+        font-size: 2rem;
+      }
+
+      h2{
+        font-size: 1.5rem;
+      }
+
+      p{
+        font-size: .98rem;
+      }
+
+      .badge{
+        font-size: .78rem;
+      }
+
+      .dots{
+        display:none;
+      }
     }
   </style>
 </head>
@@ -331,24 +388,15 @@
       <div class="steps">
         <div class="step">
           <div class="num">1</div>
-          <div>
-            <strong>Separe.</strong>
-            <p>Identifique el residuo y deposítelo en el contenedor correspondiente.</p>
-          </div>
+          <div><strong>Separe.</strong><p>Identifique el residuo y deposítelo en el contenedor correspondiente.</p></div>
         </div>
         <div class="step">
           <div class="num">2</div>
-          <div>
-            <strong>Recolecte.</strong>
-            <p>El personal autorizado transporta los residuos según su clasificación.</p>
-          </div>
+          <div><strong>Recolecte.</strong><p>El personal autorizado transporta los residuos según su clasificación.</p></div>
         </div>
         <div class="step">
           <div class="num">3</div>
-          <div>
-            <strong>Trate y disponga.</strong>
-            <p>Cada residuo recibe el tratamiento y disposición final adecuado y seguro.</p>
-          </div>
+          <div><strong>Trate y disponga.</strong><p>Cada residuo recibe el tratamiento y disposición final adecuado y seguro.</p></div>
         </div>
       </div>
     </section>
@@ -366,9 +414,7 @@
           <p>El reciclaje disminuye costos, reduce emisiones y evita que residuos aprovechables terminen en vertederos.</p>
         </div>
       </div>
-      <div class="footer-note">
-        Segregar correctamente es un compromiso de todos.
-      </div>
+      <div class="footer-note">Segregar correctamente es un compromiso de todos.</div>
     </section>
 
     <section class="slide">
@@ -434,6 +480,18 @@
       if(e.key === 'ArrowRight') nextSlide();
       if(e.key === 'ArrowLeft') prevSlide();
     });
+
+    let startX = 0;
+    document.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+    }, {passive:true});
+
+    document.addEventListener('touchend', e => {
+      const endX = e.changedTouches[0].clientX;
+      const diff = startX - endX;
+      if(diff > 50) nextSlide();
+      if(diff < -50) prevSlide();
+    }, {passive:true});
   </script>
 </body>
 </html>
